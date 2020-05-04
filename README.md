@@ -2,7 +2,9 @@
 
 Use Gandi API v5 to backup all your all your DNS records & email forwarding, in case of misconfiguration or major outage.
 
-When you count more than a hundred records and redirects, you don't want to lose them ...
+When you count more than a hundred records and redirects, you don't want to lose them
+
+*"Not the greatest code, but it works"*
 
 
 ##### With docker (for one shot backup) :
