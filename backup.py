@@ -107,7 +107,7 @@ def store_backup():
     os.symlink('./'+now, settings["DATA_PATH"]+'/current')
 
 if __name__ == "__main__":
-    while settings["INTERVAL"] > 0:
+    while int(settings["INTERVAL"]) > 0:
         prepare_tmp_directory()
         backup_all()
         print('Backup success')
@@ -116,5 +116,6 @@ if __name__ == "__main__":
             write_log('New version stored')
         else:
             write_log('Nothing changed')
+        print('Sleeping for {}h'.format(str(settings["INTERVAL"])))
         sleep(int(settings["INTERVAL"]) * 60 * 60)
 
