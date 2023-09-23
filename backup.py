@@ -61,6 +61,9 @@ def get(resource):
     try:
         response = requests.get(settings["API_URL"]+'/'+resource+'?per_page=500', headers=HEADERS)
         data = json.loads(response.text)
+        for element in data:
+            if "quota_used" in element:
+                element.pop("quota_used")
         return data
     except:
         print("Error :"+response.text)
@@ -102,7 +105,7 @@ def backup_all():
 def store_backup():
     if os.path.exists(settings["DATA_PATH"]+'/current'):
         os.unlink(settings["DATA_PATH"]+'/current')
-    now = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    now = datetime.now().strftime("%Y/%m/%d/%H-%M-%S")
     shutil.copytree(settings["TMP_PATH"], settings["DATA_PATH"]+'/'+now)
     os.symlink('./'+now, settings["DATA_PATH"]+'/current')
 
