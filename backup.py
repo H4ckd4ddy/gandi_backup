@@ -23,7 +23,6 @@ BACKUPED_RESOURCES = [
     'domain/domains/{domain}/livedns',
     'livedns/domains/{domain}/keys',
     'livedns/domains/{domain}/records',
-    'livedns/domains/{domain}/snapshots',
     'email/forwards/{domain}',
     'email/mailboxes/{domain}'
 ]
